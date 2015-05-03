@@ -1,0 +1,131 @@
+<html>
+<head>
+<title>
+
+</title>
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=medium-dpi" />
+<link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery.mobile-1.4.2.min.js"></script>
+<script src="js/prototipo.js"></script>
+<link rel="stylesheet" type="text/css" href="calendario/css/calendar.css" />
+<link rel="stylesheet" type="text/css" href="calendario/css/custom_2.css" />
+<script type="text/javascript" src="calendario/js/jquery.calendario.js"></script>
+<script type="text/javascript" src="calendario/js/data.js"></script>
+<script type="text/javascript">	
+	$(function() {
+			$wrapper = $( '#custom-inner' ),
+			$calendar = $( '#calendar' ),
+			cal = $calendar.calendario( {
+				onDayClick : function( $el, $contentEl, dateProperties ) {
+					var data_selecionada;
+					var dia = dateProperties['day'];
+					var mes = dateProperties['month'];
+					var ano = dateProperties['year'];
+					
+					if (mes.length == 1){
+						mes = "0" + mes;
+					}
+					
+					if (dia.length == 1){
+						dia = "0" + dia;
+					}
+					
+					data_selecionada = dia + "/" + mes + "/" + ano;
+					document.location = "tela6.htm?data=" + data_selecionada;
+					
+
+				},
+				caldata : codropsEvents,
+				displayWeekAbbr : true
+			} ),
+			$month = $( '#custom-month' ).html( cal.getMonthName() ),
+			$year = $( '#custom-year' ).html( cal.getYear() );
+
+		$( '#custom-next' ).on( 'click', function() {
+			cal.gotoNextMonth( updateMonthYear );
+		} );
+		$( '#custom-prev' ).on( 'click', function() {
+			cal.gotoPreviousMonth( updateMonthYear );
+		} );
+
+		function updateMonthYear() {				
+			$month.html( cal.getMonthName() );
+			$year.html( cal.getYear() );
+		}
+
+		// just an example..
+		function showEvents( $contentEl, dateProperties ) {
+
+			hideEvents();
+			
+			var $events = $( '<div id="custom-content-reveal" class="custom-content-reveal"><h4>Events for ' + dateProperties.monthname + ' ' + dateProperties.day + ', ' + dateProperties.year + '</h4></div>' ),
+				$close = $( '<span class="custom-content-close"></span>' ).on( 'click', hideEvents );
+
+			$events.append( $contentEl.html() , $close ).insertAfter( $wrapper );
+			
+			setTimeout( function() {
+				$events.css( 'top', '0%' );
+			}, 25 );
+
+		}
+		function hideEvents() {
+
+			var $events = $( '#custom-content-reveal' );
+			if( $events.length > 0 ) {
+				
+				$events.css( 'top', '100%' );
+			}
+
+		}
+	
+	});
+</script>
+</head>
+<body>
+<div data-role="page" id="tela4">
+	
+		<div data-role="header" data-position="fixed">
+			<div data-role="controlgroup" data-type="horizontal">
+				<a href="tela4.htm" data-ajax="false" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+				<a href="menu.htm" data-ajax="false" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left">Menu</a>
+				<a href="index.htm" data-ajax="false" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left">Sair</a>
+			 </div>
+		</div>
+		
+		<div data-role="main" id="main" class="ui-content">
+		<form action="" name="form" method="post" class="formee">
+            <div class="grid-9-12">
+                <label>Medico ou especialidade</label>
+				<select name="regional" class="wfull" id="regional">
+					<option></option>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+                </select>
+			</div>	
+		</form>
+		
+		
+		<div class="clear"></div>	
+		<p>Clique no dia desejado para marcar a sua consulta</p>
+		<div class="custom-calendar-wrap">
+				<div id="custom-inner" class="custom-inner">
+					<div class="custom-header clearfix">
+						<nav>
+							<span id="custom-prev" class="custom-prev"></span>
+							<span id="custom-next" class="custom-next"></span>
+						</nav>
+						<h2 id="custom-month" class="custom-month"></h2>
+						<h3 id="custom-year" class="custom-year"></h3>
+					</div>
+				<div id="calendar" class="fc-calendar-container"></div>
+			</div>
+		</div>		
+		</form>
+		</div>
+ </div>
+	<script type="text/javascript" src="phonegap.js"></script>
+</body>
+</html>

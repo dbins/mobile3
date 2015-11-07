@@ -1,275 +1,40 @@
-<!DOCTYPE html>
 <html>
-    <head>
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=medium-dpi" />
-		<link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
-        <title>Sistema Teste</title>
-    </head>
-    <body>
-        <div id="app">
-            <div data-role="page" id="pageone">
-			  <div data-role="header" data-position="fixed">
-				 <div data-role="controlgroup" data-type="horizontal">
-					<a href="#pageone" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
-					<a href="#menu" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left">Menu</a>
-				 </div>
-			  </div>
+<head>
+<title>
 
-			  <div data-role="main" id="main" class="ui-content">
-				<p>Sistema de testes Mobile</p>
-				<p>Desenvolvido com Phonegap</p>
-			  </div>
-
-			  <div data-role="footer" data-position="fixed">
-				<h1>Sistema Teste</h1>
-			  </div>
-			</div> 
-			
-			<div data-role="page" id="menu">
-			   
-			  <div data-role="header" data-position="fixed">
-				 <div data-role="controlgroup" data-type="horizontal">
-				 <a href="#pageone" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
-				 <a href="#menu" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left">Menu</a>
-				 </div>
-			  </div>
-
-			  <div data-role="main" id="main" class="ui-content">
-				<a href="#noticias" class="ui-btn">Noticias</a>
-				<a href="#tempo" class="ui-btn">Previsão do Tempo</a>
-				<a href="#posicao" class="ui-btn">Minha Posição Atual</a>
-				<a href="#contatos" class="ui-btn">Meus Contatos</a>
-				<a href="#bussola" class="ui-btn">Bussola</a>
-				<a href="#galeria" class="ui-btn">Galeria de Fotos</a>
-				<a href="#dados" class="ui-btn">Ler / Gravar Dados</a>
-				<a href="#foto" class="ui-btn">Enviar Foto</a>
-				<a href="#acelerometro" class="ui-btn">Acelerômetro</a>
-				<a href="#telefone" class="ui-btn">Info sobre o telefone</a>
-			  </div>
-
-			  <div data-role="footer" data-position="fixed">
-				<h1>Sistema Teste</h1>
-			  </div>
-			</div> 
-
-			<div data-role="page" id="noticias">
-			  <div data-role="header" data-position="fixed">
-				 <div data-role="controlgroup" data-type="horizontal">
-					<a href="#pageone" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
-					<a href="#menu" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left">Menu</a>
-				 </div>
-			  </div>
-
-			  <div data-role="main" class="ui-content">
-				<div id="content_news" data-role="collapsibleset">
-				</div>
-			  </div>
-
-			  <div data-role="footer">
-				<h1>Noticias</h1>
-			  </div>
-			</div> 
-
-			<div data-role="page" id="posicao">
-			  <div data-role="header" data-position="fixed">
-				 <div data-role="controlgroup" data-type="horizontal">
-				 <a href="#pageone" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
-				 <a href="#menu" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left">Menu</a>
-				 </div>
-			  </div>
-
-			  <div data-role="main" class="ui-content">
-				<div id="map_canvas" style="width: 300px; height: 300px"></div>
-			  </div>
-
-			  <div data-role="footer">
-				<h1>Posição</h1>
-			  </div>
-			</div> 
-
-
-			<div data-role="page" id="contatos">
-			  
-			  <div data-role="header" data-position="fixed">
-				 <div data-role="controlgroup" data-type="horizontal">
-					<a href="#pageone" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
-					<a href="#menu" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left">Menu</a>
-				 </div>
-			  </div>
-
-			  <div data-role="main" class="ui-content">
-				 <ul id="contactList" data-role="listview">
-				</ul>
-			  </div>
-
-			  <div data-role="footer">
-				<h1>Meus Contatos</h1>
-			  </div>
-			</div> 
-			
-			<div data-role="page" id="view_contato">
-			  <div data-role="header" data-position="fixed">
-				 <div data-role="controlgroup" data-type="horizontal">
-				 <a href="#pageone" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
-				 <a href="#menu" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left">Menu</a>
-				 </div>
-			  </div>
-
-			  <div data-role="main" class="ui-content">
-				 <div id="contact"></div>
-			  </div>
-
-			  <div data-role="footer">
-				<h1>Detalhes do Contato</h1>
-			  </div>
-			</div> 
-
-			<div data-role="page" id="telefone">
-			  <div data-role="header" data-position="fixed">
-				 <div data-role="controlgroup" data-type="horizontal">
-				 <a href="#pageone" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
-				 <a href="#menu" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left">Menu</a>
-				 </div>
-			  </div>
-
-			  <div data-role="main" class="ui-content">
-				<p>Informações sobre o dispositivo</p>
-				<div id="deviceproperties"></div>
-			  </div>
-
-			  <div data-role="footer">
-				<h1>Dados deste Telefone</h1>
+</title>
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=medium-dpi" />
+<link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery.mobile-1.4.2.min.js"></script>
+<script src="js/prototipo.js"></script>
+</head>
+<body>
+<div class="container">
+	<div id="conteudo">
+		<form method="post" action="tela4.htm" data-ajax="false" name="form" target="_blank" onsubmit="return checkform(document.form, 'LOGIN');" >
+                <div class="grid-12-12">
+                <label>Login</label>
+				<input name="login" id="login" type="text">
+				</div>	
 				
-			  </div>
-			</div>
-			
-			<div data-role="page" id="bussola">
-			  <div data-role="header" data-position="fixed">
-				 <div data-role="controlgroup" data-type="horizontal">
-				 <a href="#pageone" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
-				 <a href="#menu" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left">Menu</a>
-				 </div>
-			  </div>
-
-			  <div data-role="main" class="ui-content">
-				<p>Informações sobre a bússola</p>
-				<div id="devicebussola"></div>
-			  </div>
-
-			  <div data-role="footer">
-				<h1>Bussola</h1>
-			  </div>
-			</div>
-			
-			<div data-role="page" id="galeria">
-				<div data-role="header">
-					<div data-role="controlgroup" data-type="horizontal">
-						<a href="#pageone" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
-						<a href="#menu" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left">Menu</a>
-					</div>
+				<div class="grid-12-12">
+                <label>Senha</label>
+				<input name="senha" id="senha" type="text">
 				</div>
-				<div data-role="content">
-					<h2>Galeria</h2>
-					<div id="gallery" class="ui-grid-a"></div>
+
+				<div class="grid-3-12">
+                <input type="submit" id="enviar_foto" value="Entrar">
 				</div>
-			</div>
-			 
-			<div data-role="page" id="imagem">
-				<div data-role="header">
-					<a href="#galeria" data-rel="back" data-icon="arrow-l">Voltar</a>
-					<h1>Imagem</h1>
-				</div>
-				<div data-role="content">
-					<div id="pic"></div>
-				</div>
-				<div data-role="footer">
-					<h1>Imagem Selecionada</h1>
-				</div>
-			</div>
-			
-			<div data-role="page" id="dados">
-			  <div data-role="header" data-position="fixed">
-				 <div data-role="controlgroup" data-type="horizontal">
-				 <a href="#pageone" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
-				 <a href="#menu" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left">Menu</a>
-				 </div>
-			  </div>
+				
+		</form>
+	</div>
+	<div class="clear"></div>
 
-			  <div data-role="main" class="ui-content">
-				<p>Teste gravação de dados</p>
-				<form id="form_dados" data-ajax="false">
-					<textarea name="anotacao_conteudo" id="anotacao_conteudo" rows="30" cols="10"></textarea>
-					<input type="submit" id="gravar_dados" value="Salvar">
-				</form>
-			  </div>
-
-			  <div data-role="footer">
-				<h1>Dados</h1>
-			  </div>
-			</div>
-			
-			<div data-role="page" id="foto">
-			  <div data-role="header" data-position="fixed">
-				 <div data-role="controlgroup" data-type="horizontal">
-				 <a href="#pageone" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
-				 <a href="#menu" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left">Menu</a>
-				 </div>
-			  </div>
-
-			  <div data-role="main" class="ui-content">
-				<p>Clique no botão abaixo para enviar tirar uma foto e enviar para nós</p>
-				<form id="form_dados" data-ajax="false">
-					<input type="submit" id="enviar_foto" value="ENVIAR FOTO!">
-				</form>
-			  </div>
-
-			  <div data-role="footer">
-				<h1>Enviar Foto para o Servidor</h1>
-			  </div>
-			</div>
-			
-			<div data-role="page" id="acelerometro">
-			  <div data-role="header" data-position="fixed">
-				 <div data-role="controlgroup" data-type="horizontal">
-				 <a href="#pageone" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
-				 <a href="#menu" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left">Menu</a>
-				 </div>
-			  </div>
-
-			  <div data-role="main" class="ui-content">
-				<canvas id="canvas" width="350" height="350" style="border: 2px solid #000"></canvas>
-				<img id="ball" style="display: none" />
-			  </div>
-
-			  <div data-role="footer">
-				<h1>Acelerometro</h1>
-			  </div>
-			</div>
-			
-			<div data-role="page" id="tempo">
-			  <div data-role="header" data-position="fixed">
-				 <div data-role="controlgroup" data-type="horizontal">
-				 <a href="#pageone" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
-				 <a href="#menu" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left">Menu</a>
-				 </div>
-			  </div>
-
-			  <div data-role="main" class="ui-content">
-				  <h1>São Paulo</h1>
-				  <p class="weather"></p>
-			  </div>
-
-			  <div data-role="footer">
-				<h1>Previsão do Tempo</h1>
-			  </div>
-			</div>
-
-        </div>
-		<script type="text/javascript" src="libs/fastclick.min.js"></script>
-		<script type="text/javascript" src="phonegap.js"></script>
-		<script src="js/jquery-1.10.2.min.js"></script>
-		<script src="js/jquery.mobile-1.4.2.min.js"></script>
-		<script src="js/scripts.js"></script>
-    </body>
+	<a href="tela2.htm" data-ajax="false" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left">Esqueceu a senha?</a>
+	<a href="tela3.htm" data-ajax="false" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left">Cadastrar</a>
+</div>
+	<script type="text/javascript" src="phonegap.js"></script>
+</body>
 </html>
